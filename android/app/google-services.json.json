@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "347260024328",
+    "project_id": "doctor-dost2",
+    "storage_bucket": "doctor-dost2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347260024328:android:1cb953dc745c26f2e403bd",
+        "android_client_info": {
+          "package_name": "com.arman.doctordost2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmnOeung6oUHjrabBHc_7_EvGI_LNVLsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
