@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Admin Dashboard</h2>
+<p>All Appointments (Admin Control)</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Doctor</th>
+        <th>Patient</th>
+        <th>Slot</th>
+        <th>Notes</th>
+        <th>Action</th>
+    </tr>
+
+    {% for a in appointments %}
+    <tr>
+        <td>{{ doctors[a.doctor_id].name }}</td>
+        <td>{{ patients[a.patient_id].name }}</td>
+        <td>{{ a.slot }}</td>
+        <td>{{ a.notes or "-" }}</td>
+        <td>
+            <a href="/admin/delete/{{ a.id }}"
+               onclick="return confirm('Delete this appointment?')">
+               ❌ Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/" class="btn secondary">← Back to Home</a>
+
+{% endblock %}

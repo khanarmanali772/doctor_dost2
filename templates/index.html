@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-left">
+        <h1>Doctor Appointment Booking</h1>
+        <p>
+            Book appointments with trusted doctors easily.<br>
+            Fast • Secure • Reliable
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#doctors" class="btn primary">Book Appointment</a>
+            <a href="/contact" class="btn secondary">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" alt="Doctor">
+    </div>
+</section>
+
+<hr>
+
+<section id="doctors" class="doctors-section">
+    <h2>Available Doctors</h2>
+
+    <div class="doctor-grid">
+        {% for d in doctors %}
+        <div class="doctor-card">
+            <h3>{{ d.name }}</h3>
+            <p>{{ d.specialty }}</p>
+
+            {% if d.slots %}
+                <small>{{ d.slots | length }} slots available</small>
+            {% else %}
+                <small>No slots available</small>
+            {% endif %}
+
+            <br><br>
+            <a href="/book/{{ d.id }}" class="btn small">Book Now</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

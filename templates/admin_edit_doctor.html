@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4" style="max-width:600px">
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <h4 class="mb-3">Edit Doctor</h4>
+
+      <form method="post">
+        <div class="mb-3">
+          <label class="form-label">Doctor Name</label>
+          <input type="text" name="name" value="{{ doctor.name }}" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Specialty</label>
+          <input type="text" name="specialty" value="{{ doctor.specialty }}" class="form-control" required>
+        </div>
+
+        <button class="btn btn-primary">Save Changes</button>
+        <a href="/admin" class="btn btn-secondary ms-2">Cancel</a>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

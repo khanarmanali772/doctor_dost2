@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="max-width:700px; margin:30px auto;">
+    <h2>{{ doctor.name }}</h2>
+    <p><strong>Specialty:</strong> {{ doctor.specialty }}</p>
+
+    <hr>
+
+    <h3>Available Slots</h3>
+
+    {% if doctor.slots %}
+        <ul>
+            {% for s in doctor.slots %}
+                <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/book/{{ doctor.id }}" class="btn primary">Book Appointment</a>
+    {% else %}
+        <p>No slots available right now.</p>
+    {% endif %}
+
+    <br><br>
+    <a href="/" class="btn secondary">← Back to Home</a>
+</div>
+
+{% endblock %}

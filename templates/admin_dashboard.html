@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <h2 class="mb-4">Admin Dashboard</h2>
+
+  <!-- Add Doctor -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="mb-3">Add New Doctor</h5>
+
+      <form method="post" action="/admin/add-doctor" class="row g-2">
+        <div class="col-md-5">
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Doctor Name"
+            required
+          >
+        </div>
+
+        <div class="col-md-5">
+          <input
+            type="text"
+            name="specialty"
+            class="form-control"
+            placeholder="Specialty"
+            required
+          >
+        </div>
+
+        <div class="col-md-2 d-grid">
+          <button class="btn btn-success">
+            Add Doctor
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Doctors List -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <h5 class="mb-3">Doctors</h5>
+
+      {% for d in doctors %}
+      <div class="border rounded p-3 mb-3">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h6 class="mb-1">{{ d.name }}</h6>
+            <small class="text-muted">{{ d.specialty }}</small><br>
+            <small>Slots: {{ d.slots | length }}</small>
+          </div>
+
+          <div>
+            <a href="/admin/generate-slots/{{ d.id }}" class="btn btn-outline-primary btn-sm">
+              Generate Slots
+            </a>
+
+            <a href="/admin/edit-doctor/{{ d.id }}" class="btn btn-outline-warning btn-sm">
+              Edit
+            </a>
+
+            <a
+              href="/admin/delete-doctor/{{ d.id }}"
+              class="btn btn-outline-danger btn-sm"
+              onclick="return confirm('Delete this doctor?')"
+            >
+              Delete
+            </a>
+          </div>
+        </div>
+
+      </div>
+      {% else %}
+        <p class="text-muted">No doctors added yet.</p>
+      {% endfor %}
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

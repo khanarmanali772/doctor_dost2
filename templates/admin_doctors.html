@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Doctor</h2>
+<form method="POST">
+    <input name="name" placeholder="Doctor Name" required>
+    <input name="specialty" placeholder="Specialty" required>
+    <button class="btn primary">Add</button>
+</form>
+{% endblock %}
